@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import { Button } from "../ui/button";
@@ -6,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const Help = () => {
   return (
-    <div className="h-full my-10 sm:my-20">
+    <div className="h-full my-10 sm:my-20 w-full screen_4k:w-[70%] mx-auto relative">
       <ParallaxBanner
         layers={[{ image: "/assets/png/call-bg.jpg", speed: -20 }]}
         className="aspect-[2/1] h-[400px] sm:h-[500px] relative"
@@ -28,9 +27,9 @@ const Help = () => {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <Button
               className={cn(
-                "group relative isolate overflow-hidden rounded-md bg-white text-blue-600 text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6",
+                "group relative isolate overflow-hidden bg-white px-8 text-blue-600 py-6 rounded-md",
                 "before:absolute before:inset-y-0 before:right-0 before:z-[-1] before:w-[51%] before:origin-left before:scale-x-0 before:bg-blue-600 before:transition-transform before:duration-300 before:ease-in-out",
-                "after:absolute after:inset-y-0 after:left-0 after:z-[-1] after:w-[51%] after:origin-right after:scale-x-0 after:bg-blue-600 before:transition-transform before:duration-300 before:ease-in-out",
+                "after:absolute after:inset-y-0 after:left-0 after:z-[-1] after:w-[51%] after:origin-right after:scale-x-0 after:bg-blue-600 after:transition-transform after:duration-300 after:ease-in-out",
                 "hover:before:scale-x-100 hover:after:scale-x-100 hover:text-white"
               )}
               variant={"default"}
@@ -39,10 +38,10 @@ const Help = () => {
             </Button>
             <Button
               className={cn(
-                "group relative isolate overflow-hidden rounded-md bg-transparent border border-white text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 py-4 sm:py-6",
+                "group relative isolate overflow-hidden bg-transparent border px-8 text-white py-6 rounded-md",
                 "before:absolute before:inset-y-0 before:right-0 before:z-[-1] before:w-[51%] before:origin-left before:scale-x-0 before:bg-white before:transition-transform before:duration-300 before:ease-in-out",
-                "after:absolute after:inset-y-0 after:left-0 after:z-[-1] after:w-[51%] after:origin-right after:scale-x-0 after:bg-white before:transition-transform before:duration-300 before:ease-in-out",
-                "hover:before:scale-x-100 hover:after:scale-x-100 hover:text-blue-600"
+                "after:absolute after:inset-y-0 after:left-0 after:z-[-1] after:w-[51%] after:origin-right after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-in-out",
+                "hover:before:scale-x-100 hover:text-blue-600 hover:after:scale-x-100"
               )}
               variant={"default"}
             >

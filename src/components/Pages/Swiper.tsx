@@ -63,18 +63,20 @@ export default function SliderComponent({
         ))}
       </Swiper>
 
-      <button
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white h-10 w-10 rounded-full hover:bg-blue-700 cursor-pointer z-20"
-        onClick={() => sliderRef.current?.slidePrev()}
-      >
-        &lt;
-      </button>
-      <button
-        className=" absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white h-10 w-10 rounded-full hover:bg-blue-700 cursor-pointer z-20"
-        onClick={() => sliderRef.current?.slideNext()}
-      >
-        &gt;
-      </button>
+      <div className="px-20">
+        <button
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white h-10 w-10 rounded-full hover:bg-blue-700 cursor-pointer z-20"
+          onClick={() => sliderRef.current?.slidePrev()}
+        >
+          &lt;
+        </button>
+        <button
+          className=" absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white h-10 w-10 rounded-full hover:bg-blue-700 cursor-pointer z-20"
+          onClick={() => sliderRef.current?.slideNext()}
+        >
+          &gt;
+        </button>
+      </div>
     </div>
   );
 }

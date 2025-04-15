@@ -17,7 +17,7 @@ const Services = () => {
   const rightOptions = options.slice(middleIndex);
 
   return (
-    <div className="h-full mt-10 w-[95%] lg:w-[80%] xl:w-[70%] mx-auto">
+    <div className="h-full mt-10 w-full lg:w-[80%] screen_4k:w-[70%] mx-auto">
       {/* Header Section */}
       <div className="flex flex-col items-center text-center gap-4">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold max-w-[650px]">
@@ -36,9 +36,9 @@ const Services = () => {
       </div>
 
       {/* Main Content Section */}
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center mt-10 gap-10">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between mt-10 gap-10">
         {/* Left Section */}
-        <div className="max-w-[550px] text-center md:text-left">
+        <div className="max-w-[550px] text-center md:text-left px-5">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold pb-3">Who We Are</h1>
             <span className="block h-[3px] w-[50px] bg-blue-600 mx-auto md:mx-0"></span>

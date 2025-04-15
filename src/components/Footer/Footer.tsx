@@ -28,8 +28,8 @@ const handleMoveTop = () => {
 
 const Footer = () => {
   return (
-    <div>
-      <div className="flex justify-between py-10 px-10 bg-[#176ABC] text-white">
+    <div className="mx-auto w-full screen_4k:w-[70%]">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-10 lg:grid-cols-3 xl:grid-cols-4  py-10 px-10 bg-[#176ABC] text-white ">
         {/* section 1  */}
         <div className="flex flex-col gap-5">
           <h1 className="text-2xl font-semibold">About Us</h1>
@@ -109,7 +109,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-500 relative py-6 px-5 flex justify-center items-center text-white font-semibold">
+      <div className="bg-blue-500 relative py-6 px-5 flex justify-center items-center max-sm:text-center max-sm:text-sm text-white font-semibold">
         <h1>
           © Copyright 2018 | All Rights Reserved by naveedislam20ni@gmail.com
         </h1>

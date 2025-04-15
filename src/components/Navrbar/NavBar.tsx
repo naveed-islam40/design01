@@ -3,12 +3,23 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import TopNavbar from "./TopNavbar";
 import Image from "next/image";
-import NavLink from "./NavLinks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavigationMenuOption from "./NavigationMenu";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [selectOption, setSelectOption] = useState("");
+  const [isSticky, setIsSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const Homeoptions = [
     { name: "Dashboard", href: "/dashboard" },
@@ -20,52 +31,114 @@ const Navbar = () => {
   return (
     <div className="w-full bg-white">
       <TopNavbar />
-      <nav className="py-3 flex justify-between items-center w-[95%] 2xl:w-[70%] mx-auto">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/assets/png/logo.png"
-            alt="Logo"
-            width={200}
-            height={200}
-          />
-        </Link>
 
-        {/* Navigation Links */}
-        <div className="hidden md:flex space-x-4">
-          <NavigationMenuOption
-            links={Homeoptions}
-            child="Home"
-            handleSelectOption={(option) => setSelectOption(option)}
-            selectedOption={selectOption}
-          />
-          <NavLink href="/doctors">Doctors</NavLink>
-          <NavLink href="/services">Services</NavLink>
-          <NavigationMenuOption
-            links={[{ name: "Pages", href: "/pages" }]}
-            child="Pages"
-            handleSelectOption={(option) => setSelectOption(option)}
-            selectedOption={selectOption}
-          />
-          <NavigationMenuOption
-            links={[{ name: "Blogs", href: "/blogs" }]}
-            child="Blogs"
-            handleSelectOption={(option) => setSelectOption(option)}
-            selectedOption={selectOption}
-          />
-          <NavLink href="/contact">Contact Us</NavLink>
-        </div>
-
-        {/* Book Appointment Button */}
-        <Button variant="default" className="bg-blue-600 group p-0" asChild>
-          <Link
-            href="/book-appointment"
-            className="flex justify-center gap-2 items-center shadow-xl text-sm bg-blue-600 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0  before:bg-[#333] hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-5 overflow-hidden border-2  group "
-          >
-            Book Appointment
+      <div
+        className={`${
+          isSticky
+            ? "fixed top-0 shadow-md z-50 bg-white transition ease-in-out duration-500 w-full"
+            : "relative"
+        }`}
+      >
+        <nav className="py-3 flex justify-between items-center mx-auto w-full screen_4k:w-[70%] h-[80px] px-4 md:px-20 screen_4k:px-0">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/assets/png/logo.png"
+              alt="Logo"
+              width={150}
+              height={150}
+            />
           </Link>
-        </Button>
-      </nav>
+
+          {/* Desktop Navigation */}
+          <div className="hidden nav_lg:flex space-x-4 items-center bg-gray-100 px-4 shadow-sm rounded-full">
+            <NavigationMenuOption
+              links={Homeoptions}
+              child="Home"
+              handleSelectOption={(option) => setSelectOption(option)}
+              selectedOption={selectOption}
+            />
+            <Link href="/doctors" className="font-semibold px-3">
+              Doctors
+            </Link>
+            <Link href="/services" className="font-semibold px-3">
+              Services
+            </Link>
+            <NavigationMenuOption
+              links={[{ name: "Pages", href: "/pages" }]}
+              child="Pages"
+              handleSelectOption={(option) => setSelectOption(option)}
+              selectedOption={selectOption}
+            />
+            <NavigationMenuOption
+              links={[{ name: "Blogs", href: "/blogs" }]}
+              child="Blogs"
+              handleSelectOption={(option) => setSelectOption(option)}
+              selectedOption={selectOption}
+            />
+            <Link href="/contact" className="font-semibold px-3">
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="nav_lg:hidden">
+            <button
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="text-3xl text-blue-600"
+              aria-label="Toggle Menu"
+            >
+              {menuOpen ? <RxCross2 /> : <GiHamburgerMenu />}
+            </button>
+          </div>
+
+          {/* Appointment Button */}
+          <div className="hidden nav_lg:flex">
+            <Button
+              variant="default"
+              className="bg-blue-600 rounded-md text-white"
+              asChild
+            >
+              <Link
+                href="/book-appointment"
+                className="flex justify-center gap-2 items-center shadow-xl text-sm lg:font-semibold border-gray-50 relative z-10 px-4 py-3 overflow-hidden border-2 group"
+              >
+                Book Appointment
+              </Link>
+            </Button>
+          </div>
+        </nav>
+
+        {/* Mobile Nav Dropdown */}
+        {menuOpen && (
+          <div className="nav_lg:hidden bg-white shadow-md px-4 py-6 space-y-4">
+            <Link href="/" className="block font-semibold">
+              Home
+            </Link>
+            <Link href="/doctors" className="block font-semibold">
+              Doctors
+            </Link>
+            <Link href="/services" className="block font-semibold">
+              Services
+            </Link>
+            <Link href="/pages" className="block font-semibold">
+              Pages
+            </Link>
+            <Link href="/blogs" className="block font-semibold">
+              Blogs
+            </Link>
+            <Link href="/contact" className="block font-semibold">
+              Contact Us
+            </Link>
+            <Link
+              href="/book-appointment"
+              className="block bg-blue-600 text-white px-4 py-2 rounded-md text-center font-semibold"
+            >
+              Book Appointment
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

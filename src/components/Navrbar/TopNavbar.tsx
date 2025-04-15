@@ -5,7 +5,7 @@ import { IoMdMail } from "react-icons/io";
 
 const TopNavbar = () => {
   return (
-    <nav className="bg-white w-[95%] 2xl:w-[70%] mx-auto flex justify-between items-center max-sm:flex-col py-3">
+    <nav className="bg-white w-full screen_4k:w-[70%] max-md:px-4 mx-auto flex justify-between items-center max-sm:flex-col py-3 px-20">
       <div className="flex space-x-4">
         <Link href="/about" className="text-gray-700 hover:text-gray-900">
           About

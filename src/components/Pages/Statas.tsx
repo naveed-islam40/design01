@@ -6,7 +6,7 @@ import { SlCalender } from "react-icons/sl";
 
 const Statas = () => {
   return (
-    <div className="h-[400px] relative">
+    <div className="h-[400px] relative w-full screen_4k:w-[70%] mx-auto">
       {/* Background Image */}
       <img
         src={"/assets/png/blockqoute-bg.jpg"}
@@ -18,7 +18,7 @@ const Statas = () => {
       {/* Stats Container */}
       <div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white 
-          grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10
+          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-10
           w-full max-w-[90%] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1600px]"
       >
         {/* Single Stat Card */}

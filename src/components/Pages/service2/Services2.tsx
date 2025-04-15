@@ -42,10 +42,10 @@ const Services2 = () => {
     },
   ];
   return (
-    <div className="h-[100vh]">
-      {/* Top Section  */}
-      <div className="flex justify-center items-center md:flex-col md:gap-6">
-        <h1 className="text-4xl font-bold md:w-[650px] text-center">
+    <div className="min-h-screen px-4 sm:px-6 md:px-10 py-10">
+      {/* Top Section */}
+      <div className="flex flex-col items-center text-center gap-4 md:gap-6">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold max-w-2xl">
           We Offer Different Services To Improve Your Health
         </h1>
         <Image
@@ -54,14 +54,14 @@ const Services2 = () => {
           width={60}
           height={60}
         />
-        <p className="mt-5 md:w-[650px] text-[20px] text-center text-gray-700">
+        <p className="text-base sm:text-lg text-gray-700 max-w-2xl">
           Lorem ipsum dolor sit amet consectetur adipiscing elit praesent
           aliquet. pretiumts
         </p>
       </div>
 
-      {/* Bottom Section  */}
-      <div className="grid grid-cols-3 gap-6 mt-24 place-items-center px-10">
+      {/* Bottom Section */}
+      <div className="mt-16 grid grid-cols-1 screen_9h:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
         {cards.map((card, index) => (
           <Service2Card key={index} card={card} />
         ))}

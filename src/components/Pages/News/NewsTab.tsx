@@ -30,23 +30,24 @@ const NewsTab = () => {
   return (
     <div className="h-full my-10">
       {/* Top Section  */}
-      <div className="flex justify-center items-center md:flex-col md:gap-6 py-6">
-        <h1 className="text-4xl font-bold md:w-[650px] text-center">
+      <div className="flex flex-col items-center text-center gap-4 sm:gap-5 md:gap-6 py-6 px-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold max-w-2xl">
           Keep up with Our Most Recent Medical News.
         </h1>
         <Image
           src={"/assets/png/section-img.png"}
-          alt="Image"
+          alt="Section Icon"
           width={60}
           height={60}
         />
-        <p className="mt-5 md:w-[650px] text-[20px] text-center text-gray-700">
+        <p className="text-base sm:text-lg text-gray-700 max-w-2xl">
           Lorem ipsum dolor sit amet consectetur adipiscing elit praesent
           aliquet. pretiumts
         </p>
       </div>
+
       {/* Bottom Section  */}
-      <div className="flex justify-center gap-10 mt-5 flex-wrap">
+      <div className="flex justify-center 2xl:gap-20 gap-10 mt-5 flex-wrap">
         {cards.map((card, index) => (
           <div key={index} className="relative group">
             <NewsCard card={card} />

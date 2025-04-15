@@ -17,9 +17,11 @@ export function SelectOptions({ options, value }: any) {
         <SelectValue placeholder={value} />
       </SelectTrigger>
       <SelectContent>
-        <SelectGroup>
-          {options?.map((option: any) => (
-            <SelectItem value={option}>{option}</SelectItem>
+        <SelectGroup className="">
+          {options?.map((option: any, index: number) => (
+            <div key={index} className="hover:bg-gray-100 rounded-md">
+              <SelectItem value={option}>{option}</SelectItem>
+            </div>
           ))}
         </SelectGroup>
       </SelectContent>
